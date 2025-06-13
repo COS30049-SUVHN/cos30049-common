@@ -6,6 +6,11 @@ async function main() {
   const SolidityAdvanced = await ethers.getContractFactory("SolidityAdvanced");
   const solidityAdvanced = await SolidityAdvanced.attach(contractAddress);
 
+    // Handle events (must be placed BEFORE invoking functions that emit the events)
+  solidityAdvanced.on("Log", (msg) => {
+      console.log("***LOG: Event Detected: ", msg);
+  });
+  
   ////// SolidityBasics functions
   // read initial values
   await testNumericTypes(solidityAdvanced);
