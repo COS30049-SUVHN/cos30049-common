@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+// import statement
 import "./SolidityBasics.sol";
 
 // Additional contract for demonstrating multiple inheritance
@@ -24,7 +25,7 @@ contract SolidityAdvanced is SolidityBasics, ExtraFeatures {
     constructor() {
         // Call the constructor of SolidityBasics
         owner = msg.sender; // Initialize owner
-        emit Log("SolidityAdvanced contract initialized");
+        emit Log("**LOG: SolidityAdvanced contract initialized");
     }
 
     // Custom modifier to restrict access to only the owner
@@ -40,13 +41,13 @@ contract SolidityAdvanced is SolidityBasics, ExtraFeatures {
             product *= _numbers[i]; // Calculate product instead of sum
         }
         // -- not allowed with `pure` function:
-        // emit Log("Array product calculated");
+        // emit Log("**LOG: Array product calculated");
         return product;
     }
 
     // Function using the custom modifier `onlyOwner`
     function restrictedFunction() public onlyOwner {
-        emit Log("Restricted function executed by owner");
+        emit Log("**LOG: Restricted function executed by owner");
     }
 
     // Error handling demonstration
@@ -56,26 +57,26 @@ contract SolidityAdvanced is SolidityBasics, ExtraFeatures {
         }
         
         // -- not allowed with `pure` function:
-        // emit Log("Number is within the valid range");
+        // emit Log("**LOG: Number is within the valid range");
     }
 
     // Overloading function: multiple `updateBalance` functions with different signatures
     function updateBalance(address _address, uint _amount) public override {
         balances[_address] = _amount;
-        emit Log("Balance updated using the base function");
+        emit Log("**LOG: Balance updated using the base function");
     }
 
     // Overloaded version of `updateBalance` to reset balance to zero
     function updateBalance(address _address) public onlyOwner {
         balances[_address] = 0; // Reset balance to 0
-        emit Log("Balance reset to zero");
+        emit Log("**LOG: Balance reset to zero");
     }
 
     // Demonstration of multiple inheritance:
     // Calling a function from ExtraFeatures
     function setAndGetExtraValue(uint _value) public returns (uint) {
         setExtraValue(_value); // Calls function from ExtraFeatures
-        emit Log("Extra value set in ExtraFeatures");
+        emit Log("**LOG: Extra value set in ExtraFeatures");
         return extraValue;
     }
 }
