@@ -1,0 +1,4 @@
+digraph "" {
+c38848288_VulnerableIrv[shape="box"label=< <TABLE border="0"><TR><TD align="center"><B>VulnerableIrv</B></TD></TR><TR><TD align="left"><I>Public Functions:</I></TD></TR><TR><TD align="left">    draw(uint256)</TD></TR><TR><TD align="left">    withdraw()</TD></TR><TR><TD align="left"><I>Private Functions:</I></TD></TR><TR><TD align="left">    badRandom(uint256)</TD></TR><TR><TD align="left">    winning(uint16)</TD></TR><TR><TD align="left"><I>Private Variables:</I></TD></TR><TR><TD align="left">    winners</TD></TR></TABLE> >];
+
+}

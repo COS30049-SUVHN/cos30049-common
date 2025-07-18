@@ -1,0 +1,17 @@
+strict digraph {
+subgraph cluster_28616480_VulnerableIrv {
+label = "VulnerableIrv"
+"28616480_winning" [label="winning"]
+"28616480_withdraw" [label="withdraw"]
+"28616480_badRandom" [label="badRandom"]
+"28616480_draw" [label="draw"]
+"28616480_draw" -> "28616480_winning"
+"28616480_draw" -> "28616480_badRandom"
+}subgraph cluster_solidity {
+label = "[Solidity]"
+"sha3()" 
+"blockhash(uint256)" 
+"28616480_badRandom" -> "sha3()"
+"28616480_badRandom" -> "blockhash(uint256)"
+}
+}
